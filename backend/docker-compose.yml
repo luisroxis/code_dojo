@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  db:
+    build: ./docker/mysql
+    container_name: codedojo
+    restart: always
+    tty: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./docker/.docker/dbdata:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=codedojo
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=root
